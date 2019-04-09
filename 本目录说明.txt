@@ -1,0 +1,52 @@
+2018/06/07  14:31    <DIR>          dockercompose-springboot-mysql-nginx
+2017/06/25  13:52    <DIR>          spring-boot-16-master
+2018/08/17  14:57    <DIR>          spring-boot-activiti
+2018/07/12  15:53    <DIR>          spring-boot-actuator
+2018/06/07  14:31    <DIR>          spring-boot-actuator2
+2018/06/07  14:31    <DIR>          spring-boot-admin-simple
+2018/06/07  14:31    <DIR>          spring-boot-banner
+2018/06/07  14:31    <DIR>          spring-boot-commandLineRunner
+2018/06/07  14:31    <DIR>          spring-boot-docker
+2018/06/07  14:31    <DIR>          spring-boot-fastDFS
+2018/06/07  14:31    <DIR>          spring-boot-file-upload
+2018/06/28  13:38    <DIR>          spring-boot-ftp
+2018/08/02  10:11    <DIR>          spring-boot-gitlabrunner
+2018/06/07  14:31    <DIR>          spring-boot-helloWorld
+2018/06/07  14:31    <DIR>          spring-boot-jpa-thymeleaf-curd
+2018/08/23  13:57    <DIR>          spring-boot-JPA1
+2018/08/01  15:58    <DIR>          spring-boot-kotlindemo
+2018/07/04  15:36    <DIR>          spring-boot-ldap
+2018/07/04  15:37    <DIR>          spring-boot-mail
+2018/07/18  16:22    <DIR>          spring-boot-memcached
+2018/06/07  14:31    <DIR>          spring-boot-mongodb
+2018/07/12  10:29    <DIR>          spring-boot-mongoGridFS
+2018/07/10  16:32    <DIR>          spring-boot-monitor
+2018/06/07  14:31    <DIR>          spring-boot-multi-mongodb
+2018/06/07  14:31    <DIR>          spring-boot-mybatis-annotation
+2018/06/07  14:31    <DIR>          spring-boot-mybatis-annotation-mulidatasource
+2018/06/07  14:31    <DIR>          spring-boot-mybatis-mulidatasource
+2018/06/07  14:31    <DIR>          spring-boot-mybatis-xml
+2018/06/07  14:31    <DIR>          spring-boot-package-war
+2018/06/07  14:31    <DIR>          spring-boot-rabbitmq
+2018/08/01  11:14    <DIR>          spring-boot-redis
+2018/06/07  14:31    <DIR>          spring-boot-scheduler
+2018/08/14  13:26    <DIR>          spring-boot-security	用户登录管理，IP地址过滤等
+2018/08/27  15:18    <DIR>          spring-boot-security1	用户登录管理，权限可以删除掉，使用thymeleaf和freemaker技术
+2018/08/27  15:18    <DIR>          spring-boot-security2	用户角色多对多关系，角色和权限多对多关系的项目，未完成。
+2018/08/27  15:18    <DIR>          spring-boot-security3             完整的项目
+2018/06/07  14:35    <DIR>          spring-boot-shiro
+2018/08/06  10:04    <DIR>          spring-boot-start
+2018/08/06  09:42    <DIR>          spring-boot-starter
+2018/07/27  16:25    <DIR>          spring-boot-starter-swagger2
+2018/06/07  14:31    <DIR>          spring-boot-thymeleaf
+2018/06/07  14:31    <DIR>          spring-boot-web
+2018/06/07  14:31    <DIR>          spring-boot-web-thymeleaf
+2018/01/23  10:11    <DIR>          SpringBoot-Learning
+2018/08/02  11:19    <DIR>          srping-boot-dubbo-ServerAndClient
+spring-security-ldap     20181101最新最全的AD登录认证
+
+
+https://www.thymeleaf.org/doc/articles/springsecurity.html
+https://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-boot.html
+https://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-boot.html#running-the-insecure-application
+

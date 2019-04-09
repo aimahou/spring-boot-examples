@@ -1,0 +1,87 @@
+.downMenu,
+.downMenu .top,
+.downMenu .down {
+  width: 100%;
+}
+.downMenu,
+.downMenu .top {
+  position: relative;
+  z-index: 1;
+}
+.downMenu .top,
+.downMenu .down {
+  border: 1px solid #ccc;
+  background-color: white;
+}
+.downMenu .top {
+  padding: 7px 30px 7px 10px;
+  border-color: transparent;
+}
+.downMenu .top .text {
+  width: 108px;
+  height: 24px;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.downMenu .top .ico-arrowsBottom {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  z-index: 2;
+  display: block;
+  height: 100%;
+  line-height: 38px;
+  width: 30px;
+  text-align: center;
+  -webkit-transition: 0.6s ease;
+  -moz-transition: 0.6s ease;
+  -ms-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+.downMenu .top .ico-arrowsBottom:before {
+  content: 'arrows-bottom';
+  font-size: 0;
+  border-color: black transparent transparent transparent;
+  border-style: solid solid none solid;
+  border-width: 8px 4px 0px 4px;
+}
+.downMenu .down {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 400;
+}
+.downMenu .down,
+.downMenu .down > *:last-of-type {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.downMenu .down > * {
+  padding: 10px;
+}
+.downMenu .down > *:hover {
+  background-color: #eee;
+}
+.downMenu .down > * + * {
+  border-top: 1px dashed #ccc;
+}
+.downMenu.active .top .ico-arrowsBottom {
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+
+span.required{
+ 	color:red;
+}

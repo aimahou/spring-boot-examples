@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+
+<body>
+<div>
+	<!-- 顶部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarMenu"></div>
+	
+	<!-- 中  -->
+	<div class="center">
+	
+		<!-- 左侧导航栏  -->
+		<div th:replace="fragments/navbar :: navLeftSys"  ></div>
+		
+		<!-- 右侧内容  -->
+		<div class="right">
+			<h4>角色列表</h4>
+			<h5><a th:href="@{/admin/roleCreate}" th:text="创建角色"></a></h5>
+			<table class="table table-hover table-bordered table-striped">
+		    	<thead>
+		    	<tr>
+		        	<th>id</th>
+		        	<th>名称</th>
+		        	<th>描述</th>
+		        	<th>权限</th>
+		        	<th colspan="2">操作</th>
+		    	</tr>
+		    	</thead>
+		    	<tbody>
+		    	<tr th:each="role : ${roles}" class="info">
+		    		<td><a th:href="@{'/admin/roleGet?id='+${role.id}}" th:text="${role.id}"/></td>
+		        	<td><p th:text="${role.name}" /></td>
+		        	<td><p th:text="${role.descritpion}" /></td>
+		        	<td><div th:each="syspermission: ${role.syspermissions}" >
+		        			<p th:text="${syspermission.descritpion}" />
+		        		</div>
+		        	
+		        	</td>
+		        		
+		        	<td >
+		                <a th:href="@{'/admin/roleDelete?id='+${role.id}}">删除</a>
+		                <a th:href="@{'/admin/roleModify?id='+${role.id}}">修改</a>
+		            </td>
+		    	</tr>
+		    	</tbody>
+			</table>
+            <div class="pagination" >
+  							<a th:href="@{/admin/roleList?pageNum=1}">首页</a>
+  							<a th:if="${roles.isFirst()}" th:href="@{/admin/roleList(pageNum=1,totalPages=${totalPages})}">[上一页]</a>
+  							<a th:if="${not roles.isFirst()}" th:href="@{/admin/roleList(pageNum=${pageNum-1},totalPages=${totalPages})}">[上一页]</a>
+  							<a th:if="${not roles.isLast()}" th:href="@{/admin/roleList(pageNum=${pageNum+1},totalPages=${totalPages})}">[下一页]</a>
+  							<a th:if="${roles.isLast()}" th:href="@{/admin/roleList(pageNum=${totalPages}-1,totalPages=${totalPages})}">[下一页]</a>
+     						<a th:href="@{/admin/roleList(pageNum=${totalPages})}">尾页</a>
+  			</div>
+		</div>
+	</div>
+	
+	<!-- 底部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarFooter"  ></div>	
+	
+</div>
+</body>
+</html>

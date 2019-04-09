@@ -1,0 +1,85 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+<script type="text/javascript">
+
+	$(function(){
+		$('#kaptchaImage').click(function () {
+			//点击id为kaptchaImage的图片，重新生成验证码
+			$(this).hide().attr('src', '/kaptcha/getKaptchaImage.do?' + Math.floor(Math.random()*100) ).fadeIn();
+			event.cancelBubble=true;
+		});
+	});
+	window.onbeforeunload = function(){
+		//关闭窗口时自动退出
+		if( event.clientX>360&&event.clientY < 0 || event.altKey ){
+			alert(parent.document.location);
+		}
+	};
+	
+	function changeCode() {
+		//重新生成验证码
+		$('#kaptchaImage').hide().attr('src', '/kaptcha/getKaptchaImage.do?' + Math.floor(Math.random()*100) ).fadeIn();
+		event.cancelBubble=true;
+	}
+</script>
+<body>
+<div>
+	<!-- 顶部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarMenu"></div>
+
+	<!-- 中  -->
+	<div class="container">
+        <div class="form row">
+            <div class="form-horizontal col-md-offset-3" id="login_form">
+                <h3 class="form-title">使用账号密码登录</h3>
+                <form name="form" th:action="@{/login}"  method="POST" >
+                <div class="col-md-9">
+                	<div class="form-group">
+                        <p th:if="${param.logout}" class="bg-warning">您已登出</p>
+						<p th:if="${param.error}" class="bg-danger">有错误，请重试</p> 
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-user fa-lg">账号</i>
+                        <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus" maxlength="20"/>
+                    </div>
+                    <div class="form-group">
+                            <i class="fa fa-lock fa-lg">密码</i>
+                            <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>
+                    </div>
+                    <div class="form-group">
+                            <i class="fa fa-lock fa-lg">验证码</i>
+                            <img id="kaptchaImage" th:src="@{/kaptcha/kaptchaImage}" width="80" height="34" class="captcha changeCaptcha pull-center margin-r-5" alt="验证码"/>
+                            <a href="#" onclick="changeCode()" width="80" height="34">换一张</a>
+                            <input class="form-control required" type="text" name="kaptcha" maxlength="5"/>
+                            
+                    </div>
+                    <!--
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember-me" value="1"/>记住密码
+                        </label>
+                    </div>
+                    -->
+                    <div class="form-group col-md-offset-9">
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <button type="submit" class="btn btn-success pull-right" name="submit">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+
+	<!-- 底部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarFooter"  ></div>	
+</div>
+		
+</body>
+</html>

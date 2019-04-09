@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+
+<!-- 顶部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarMenu"></div>
+	
+	<!-- 中  -->
+	<div class="center">
+	
+		<!-- 左侧导航栏  -->
+		<div th:replace="fragments/navbar :: navLeftSys"  ></div>
+		
+		<!-- 右侧内容  -->
+		<div class="right">
+			<h4>创建用户</h4>
+			<form th:action="@{/admin/userCreateSave}" method="post" class="form-horizontal" role="form" autocomplete="off" th:object="${userForm}">
+				<div class="form-group">    
+			        <label class="control-label control-label-normal col-md-2">账号:</label>
+			        <input type="text"  th:field="*{username}"> </input>
+					<p th:if="${#fields.hasErrors('username')} " th:errors="*{username}" class="text-danger">username error</p>
+			    </div>
+			    <div class="form-group">    
+			        <label class="control-label control-label-normal col-md-2">密码:</label>
+			        <input type="password"  name="newPassword"> </input>
+			    	<p th:if="${#fields.hasErrors('newPassword')} " th:errors="*{newPassword}" class="text-danger">password error</p>
+			    </div>
+			    <div class="form-group">
+			        <label class="control-label control-label-normal col-md-2">确认密码:</label>
+			        <input type="password"  name="newPasswordConfirm"> </input>
+			    	<p th:if="${#fields.hasErrors('newPasswordConfirm')}" th:errors="*{newPasswordConfirm}" class="text-danger">newPasswordConfirm error</p>
+			    	<p th:if="${MSG}"  class="text-danger">两次输入的密码不匹配</p>      
+			    </div>
+			    <div class="form-group"> 
+			        <label class="control-label control-label-normal col-md-2">昵称:</label>
+			        <input type="text" th:field="*{nickname}"> </input>
+			        <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" class="text-danger">nickname error</p>   
+			    </div>
+			    <div class="form-group">     
+			        <label class="control-label control-label-normal col-md-2">性别:</label>
+			        <input type="radio" th:field="*{sex}" th:value ="1" />男
+					<input type="radio" th:field="*{sex}" th:value ="0"  />女
+				</div>
+			    <div class="form-group"> 
+					<label class="control-label control-label-normal col-md-2">电话:</label>
+			        <input type="number" th:field="*{tel}" class="inputstyle"  />
+			        <p th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}" class="text-danger">tel error</p>   
+			    </div>
+			    <div class="form-group"> 
+			        <label class="control-label control-label-normal col-md-2">邮箱:</label>
+			        <input type="email" th:field="*{email}" class="inputstyle"  />
+			        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger">email error</p>   
+			    </div>
+			    <div class="form-group"> 
+			        <label class="control-label control-label-normal col-md-2">地址:</label>
+			        <input type="text" th:field="*{address}" class="inputstyle"  />
+			        <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger">address error</p>   
+			    </div>
+			    <div class="form-group">
+			        	<label class="control-label control-label-normal col-md-2">角色:</label>
+			        	<select name="sysroleid">
+			        		<div th:each="sysRole:${sysRoles}">
+			        			<option th:text="${sysRole.descritpion}" th:value="${sysRole.id}" th:selected="${sysRole.id }== 2"></option>
+			        		</div>
+			        	</select>
+			    </div>
+				<div class="form-group">
+		    		<div class="col-sm-offset-2 col-sm-10">
+		      			<button type="submit" class="btn btn-default">提交</button>
+		    		</div>
+		  		</div>
+				
+			</form>
+		</div>
+	
+	<!-- 底部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarFooter"  ></div>	
+
+
+</html>

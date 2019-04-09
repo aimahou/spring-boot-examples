@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+
+<body>
+<div>
+	<!-- 顶部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarMenu"></div>
+	
+	<!-- 中  -->
+	<div class="center">
+	
+		<!-- 左侧导航栏  -->
+		<div th:replace="fragments/navbar :: navLeftSys"  ></div>
+		
+		<!-- 右侧内容  -->
+		<div class="right">
+			<h4>用户信息</h4>
+			<a th:href="@{'/admin/userList'}">用户列表</a>
+			<table class="table table-hover table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>名称</th>
+						<th>邮箱</th>
+						<th>角色</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td th:text="${userinfo.id}"></td>
+						<td th:text="${userinfo.username}"></td>
+						<td th:text="${userinfo.email}"></td>
+						<td th:text="${userinfo.sysrole.descritpion}"></td>
+					</tr>
+				</tbody>
+					
+			</table>
+		</div>
+	
+	<!-- 底部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarFooter"  ></div>	
+	
+</div>
+</body>
+</html>

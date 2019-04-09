@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+
+<body>
+<div>
+	<!-- 顶部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarMenu"></div>
+	
+	<!-- 中  -->
+	<div class="center">
+	
+		
+		<!-- 右侧内容  -->
+		<div class="right">
+		     		<div class="starter-template">
+		      			<h1 th:text="${msg.title}"></h1>
+				
+						<p class="bg-primary" th:text="${msg.content}"></p>
+				
+						<div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
+				 			<p class="bg-info" th:text="${msg.etraInfo}"></p>
+						</div>
+		          		<div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
+		            	  	<p class="bg-info">恭喜您,您有 ROLE_ADMIN 权限 </p>
+		          		</div>
+		
+						<!–匿名–>
+		        		<div  sec:authorize="isAnonymous()">
+		            			未登录，点击 <a th:href="@{/login}"  class="btn btn-primary">登录</a>
+		        		</div>
+		          		<form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+		            		<input type="submit" class="btn btn-primary" value="注销"/>
+		        		</form>
+					</div>
+		</div>
+	</div>
+	
+	<!-- 底部导航栏  -->
+	<div th:replace="fragments/navbar :: navbarFooter"  ></div>	
+	
+</div>
+</body>
+</html>
